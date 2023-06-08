@@ -10,9 +10,11 @@ namespace higherlower
         {
             Random rnd = new Random();
             int num = rnd.Next(1,101);
+            int max = 5;
+            int nooftries = 0;
             
 
-            while (true)
+            while (nooftries < 5)
             {
                 Console.Write("input a number: ");
                 int user_input = Convert.ToInt16(Console.ReadLine());
@@ -28,6 +30,12 @@ namespace higherlower
                 else if (user_input < num)
                 {
                     Console.WriteLine("higher");
+                }
+                nooftries++;
+                Console.WriteLine("you have {0} tries left", (max - nooftries));
+                    if ((max - nooftries) == 0) {
+                    Console.WriteLine("you lose");
+                    break;
                 }
 
             }
